@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"; // ✅ Import useNavigate
 import {Navbar} from 'react-bootstrap';
+import { SiUnity } from "react-icons/si";
 const Usersubcategory = () => {
   const [get, setGet] = useState([]);
   const [search, setSearch] = useState([]);
@@ -16,15 +17,15 @@ const Usersubcategory = () => {
   const filteredResult = get.filter(item => item.subcategory_name.toLowerCase().includes(search));
   console.log(filteredResult)
   return (
-    <div style={{ backgroundImage: "url(https://workinsync.io/wp-content/uploads/2023/09/96-Image-3-Increased-Cost-Savings-1-1024x546.webp)", height: "1000px", backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover', width: '100%'}}>
-      <Navbar style={{backdropFilter: 'blur(20px)', boxShadow: '0px 0px 10px 2px #999'}} >
-         <p style={{fontSize: '20px', marginLeft: '10rem', fontWeight: 'bold', color: 'blue'}}>SUBCATGORIES PAGE</p>
+    <div style={{ backgroundImage: "url(https://booking.bijanbarihomestays.com/assets/images/index.jpg)", height: "1000px", backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover', width: '100%'}}>
+      <Navbar style={{backgroundColor: 'navy'}} >
+        &nbsp;&nbsp;&nbsp;<Link to="/" style={{ color: 'white', textDecoration: 'none', fontSize: '20px', fontWeight: 'bold' }}><SiUnity style={{ fontSize: '70px'}}/> Home</Link>
+        <h3 style={{color: 'white', marginLeft: '150px'}}>Search your subcategory to services</h3><input type="text" placeholder="Search..." value={search} onChange={(e) => setSearch(e.target.value)} style={{ width: '25rem', margin: 'auto', boxShadow: '0px 0px 8px 2px #666' }} className="form-control" />
       </Navbar>
       <br />
-      <h2 style={{ textAlign: "center", color: 'blue'}}>Search Subcategories...</h2>
+      <h2 style={{ textAlign: "center", color: 'white' }}>Here presented various subcategory name for booking services...</h2>
       <br />
       <br/>
-      <input type="text" placeholder="Search..." value={search} onChange={(e)=> setSearch(e.target.value)} style={{width: '25rem', margin: 'auto', boxShadow: '0px 0px 8px 2px #666'}} className="form-control"/>
       <div>
         {
           filteredResult.map((item) => (

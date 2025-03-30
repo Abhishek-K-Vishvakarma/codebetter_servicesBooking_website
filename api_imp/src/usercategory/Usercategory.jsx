@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {Navbar, Container} from "react-bootstrap";
+import { SiUnity } from "react-icons/si";
+
 const Usercategory = () => {
   const [get, setGet] = useState([]);
   useEffect(() => {
@@ -14,14 +16,14 @@ const Usercategory = () => {
 
   return (
     <div>
-      <Navbar className="bg-dark">
+      <Navbar style={{backgroundColor: 'navy', position: 'fixed', zIndex: '1', width: '100%'}}>
           <Container>
+          <Link style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold', marginLeft: '-16rem', boxShadow: '0px 0px 5px 2px #999', padding: '6px 10px'}} to="/" ><SiUnity style={{ fontSize: '80px' }} /> Home Dashboard</Link>
             <Navbar.Brand className="text-white">View Category and Select category for adding subcategory</Navbar.Brand>
           </Container>
       </Navbar>
       <div>
-        <br/>
-        <br/>
+        <br /><br /><br /><br /><br /><br /> <br />
         {get.length > 0 ?
           (get.map((data) =>{
             return <>

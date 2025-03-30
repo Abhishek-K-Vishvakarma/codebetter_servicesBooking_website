@@ -216,7 +216,7 @@ const Home = () => {
                       <TiShoppingCart style={{ fontSize: '25px', color: 'white' }} /><p title='Not found addtocart data' style={{ marginTop: '-20px', marginLeft: '-17px', fontSize: '20px', color: 'red' }}>{addsend.length}</p>
                       <button onClick={handleRefresh} style={{ background: 'transparent', marginLeft: '10rem', border: 'none', color: 'white', fontWeight: 'bold'}}>Refresh <HiOutlineRefresh /></button>
                       <Nav>
-                        <div>
+                         <div>
                         </div>
                         <p style={{ color: 'white', marginLeft: '20rem', fontWeight: 'bold' }} >Profile &nbsp;<LuCircleUser style={{ fontSize: '40px', cursor: 'pointer' }} onMouseOver={handleShow} /></p>
                         <Offcanvas show={show} onHide={handleClose} style={{ width: '30rem', height: '26rem', marginLeft: '68rem', marginTop: '40px', padding: '20px', backgroundColor: 'navy', color: 'white', boxShadow: '0px 0px 6px 1px #fff' }}>

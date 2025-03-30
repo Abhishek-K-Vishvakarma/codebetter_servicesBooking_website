@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Container, Navbar } from "react-bootstrap";
 import { FaEdit } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { SiUnity } from "react-icons/si";
 
 const Reviewupdate = () => {
   const [rev, setRev] = useState([]);
@@ -115,10 +116,12 @@ const Reviewupdate = () => {
   }
 
   return (
-    <div style={{ backgroundColor: 'navy', minHeight: '100vh', paddingBottom: '50px' }}>
-      <Navbar className="bg-info">
+    <div style={{ backgroundColor: '#999', minHeight: '100vh', paddingBottom: '50px' }}>
+      <Navbar style={{backgroundColor: 'navy', color: 'white'}}>
         <Container>
+          <Link style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold', marginLeft: '-16rem', boxShadow: '0px 0px 5px 2px #999', padding: '6px 10px' }} to="/" ><SiUnity style={{ fontSize: '80px' }} /> Home Dashboard</Link>
           <h4>User Review Updation Page</h4>
+          <h5>Search review data with User name</h5>
           <input
             type="text"
             placeholder="Search..."

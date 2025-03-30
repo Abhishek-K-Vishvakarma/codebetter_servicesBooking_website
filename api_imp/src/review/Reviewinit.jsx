@@ -1,7 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 import { Container, Navbar } from "react-bootstrap";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from "../Authentication";
+import { SiUnity } from "react-icons/si";
 
 const Reviewinit = () => {
   const [users, setUser] = useState([]);
@@ -90,7 +91,7 @@ const Reviewinit = () => {
 
     const refreshTimer = setTimeout(() => {
       setDeepSeek(false);
-    }, 2000);
+    }, 1000);
     return () => clearTimeout(refreshTimer);
   }, []);
 
@@ -98,16 +99,17 @@ const Reviewinit = () => {
   console.log(user);
   console.log(view);
   return (
-    <div style={{position: 'relative'}}>
+    <div style={{ position: 'relative'}}>
       {
         deepseek ?
         <div style={{backgroundColor: 'black', position: 'relative', height: '911px'}}>
           <h2 style={{color: 'white', position: 'absolute', top: '23rem', left: '41rem'}}>Welcome! to Review & rating page</h2>
         </div>
         :
-          <div style={{ backgroundColor: 'navy', height: '911px', position: 'relative' }}>
-            <Navbar className="bg-info">
+          <div style={{ background: 'url(https://www.newgenapps.com/hubfs/Imported_Blog_Media/Website-Design-Background-Feb-09-2022-03-13-55-73-AM.png)', height: '911px', position: 'relative' }}>
+            <Navbar style={{backgroundColor: 'navy', color: 'white'}}>
               <Container>
+                <Link style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold', marginLeft: '-16rem', boxShadow: '0px 0px 5px 2px #999', padding: '6px 10px' }} to="/" ><SiUnity style={{ fontSize: '80px' }} /> Home Dashboard</Link>
                 <h4 style={{ display: 'flex', alignItems: 'center' }}>User Review Page for Comment and Rating!</h4>
                 <p style={{ color: 'blue', fontSize: '20px', alignItems: 'center', fontWeight: 'bold' }}>Rating & review : [ {view?.count} ⭐️]</p>
               </Container>
