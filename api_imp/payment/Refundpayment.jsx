@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import {Container, Navbar} from 'react-bootstrap';
 import {useNavigate} from 'react-router-dom';
+import { useAuth } from "../src/Authentication";
 const Refundpayment = ({appointment}) => {
 const [maxso, setMaxso] = useState([]);
 const [search, setSearch] = useState([]); 
@@ -11,6 +12,8 @@ const [status, setStatus] = useState(appointment);
 const navigate = useNavigate();
 const [appoint, setAppoint] = useState([]);
 const [search1, setSearch1] = useState([]);
+const { canid } = useAuth();
+const [payid, setPayId] = useState();
   useEffect(()=>{
     fetch('http://localhost:7207/api/getpay')
     .then(e=> e.json())
@@ -27,6 +30,14 @@ const [search1, setSearch1] = useState([]);
     const payRefundObj = {
       payment_id : payRef.current.value
     }
+ 
+     maxso.map((ele)=>{
+      if(ele.appointment_id === canid.can._id){
+        console.log(ele.payment_id)
+        setPayId(ele.payment_id);
+      }
+     })
+
     try{
       const response = await fetch('http://localhost:7207/api/refund',{
         method : "POST",
@@ -71,6 +82,8 @@ const [search1, setSearch1] = useState([]);
 
   const searchAppointmentId = appoint.filter(data=> data.status.toLowerCase().includes(search1));
   console.log("maxso :", maxso);
+  console.log("Canid", canid.can);
+  console.log("payid :", payid);
   return (
     <div>
       <Navbar className="bg-info">
@@ -101,7 +114,7 @@ const [search1, setSearch1] = useState([]);
           <p style={{color: 'green', fontSize: '20px', fontWeight: 'bold', textAlign: 'center'}}>{msg}</p>
           <h4 style={{ padding: '15px', boxShadow: '0px 0px 5px 2px #999', border: 'none', backgroundColor: '#cc0c39', color: 'white'}}>RefundPayment Page</h4>
           <br/>
-              <input type="text" ref={payRef} style={{padding: '15px', boxShadow: '0px 0px 5px 2px #999', border: 'none'}} placeholder="Enter payment_id"/>
+              <input type="text" ref={payRef} style={{padding: '15px', boxShadow: '0px 0px 5px 2px #999', border: 'none'}} value={payid} placeholder="Enter payment_id"/>
           <br /><br />
           {
             status !== "Cancelled" 
@@ -117,7 +130,7 @@ const [search1, setSearch1] = useState([]);
         {
           searchAppointmentId.map((ele) =>{
             return <>
-              <p className="text-danger" style={{ border: '2px solid blue', display: 'flex', width: '30rem' }}><p className="text-success"> Appointment ID : {ele._id}</p> &nbsp; &nbsp; || &nbsp;&nbsp;{ele.status}</p>
+              {(ele.status === "Cancelled") ? <p>AppointmentID: {ele._id} || {ele.status}</p> : null}
             </>
           })
         }

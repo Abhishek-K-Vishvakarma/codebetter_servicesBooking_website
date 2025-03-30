@@ -2,6 +2,9 @@ import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {ToastContainer ,toast } from "react-toastify";
 import { useAuth } from "./Authentication";
+import { Container, Navbar } from "react-bootstrap";
+import { SiUnity } from "react-icons/si";
+
 const ForGotPassword = ()=>{
   const em = useRef();
   const old_password = useRef();
@@ -62,8 +65,15 @@ const ForGotPassword = ()=>{
   // console.log("User email :",user.email);
 
   return (
-    <div style={{backgroundColor: 'navy', height: '57rem', position: 'relative', alignItems: 'center', justifyContent: 'center', display: 'flex'}}>
-      <form className="card" onSubmit={handleforgot} style={{ width: '30rem', height: '42rem', padding: '30px', alignItems: 'center', justifyContent: 'center', color: 'white', position: 'absolute', borderRadius: '0px' }}>
+    <div style={{backgroundColor: '#d9s9f9f9', height: '57rem', position: 'relative'}}>
+      <Navbar style={{background: 'navy'}}>
+        <Container>
+          
+          <Link style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold', marginLeft: '-16rem', boxShadow: '0px 0px 5px 2px #999', padding: '6px 10px' }} to="/" ><SiUnity style={{ fontSize: '80px' }} /> Home Dashboard</Link>
+            <h3 className="text-white">Forgot? your password according you</h3>
+        </Container>
+      </Navbar>
+      <form className="card mt-5" onSubmit={handleforgot} style={{ width: '30rem', height: '42rem', padding: '40px', marginLeft: '43rem'}}>
       <p style={{color: 'red', textAlign: 'center', fontSize: '20px', fontWeight: 'bold'}}>{msg}</p>
       <p style={{ color: 'green', textAlign: 'center', fontSize: '20px', fontWeight: 'bold' }}>{success}</p>
         <p style={{ color: 'white', backgroundColor: '#cc0c39', textAlign: 'center', fontWeight: 'bold', padding: '15px 112px', boxShadow: '0px 0px 5px 2px #999', width: '25rem' }}>Forgot Password</p>

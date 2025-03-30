@@ -2,8 +2,8 @@ import {  useEffect, useRef, useState } from "react";
 import { Container, Navbar } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import { HiHome } from "react-icons/hi2";
-
+// import { HiHome } from "react-icons/hi2";
+import { SiUnity } from "react-icons/si";
 const Schedule = () => {
 const dateRef = useRef();
 const timeRef = useRef();
@@ -74,11 +74,11 @@ useEffect(()=>{
   // localStorage.removeItem("cencel");
   return (
     <div style={{ background: 'url(https://images6.alphacoders.com/728/728101.png)', height: '911px'}}>
-      <Navbar style={{backdropFilter: 'blur(40px)', boxShadow: '0px 0px 5px 3px #999'}}>
-        <Container>
-          <Link to="/" style={{textDecoration: 'none', fontSize: '20px', color: 'white'}}>Home <HiHome/></Link>
-          <h4 className="text-white">Scheduled Appointment Page</h4>
-        </Container>
+      <Navbar style={{ background: 'navy' }}>
+              <Container>
+                <Link style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold', marginLeft: '-16rem', boxShadow: '0px 0px 5px 2px #999', padding: '6px 10px' }} to="/" ><SiUnity style={{ fontSize: '80px' }} /> Home Dashboard</Link>
+                <h3 className="text-white">Forgot? your password according you</h3>
+              </Container>
       </Navbar>
       <br/><br/>
       <div>
@@ -91,7 +91,7 @@ useEffect(()=>{
                 searchmap.map((ele) => {
                   return <>
                     <div>
-                      <p style={{ display: 'flex', color: 'white'}}>AppointmentID : {ele._id} || &nbsp;<p style={{ color: 'blue' }}>{ele.status}</p> &nbsp;&nbsp;{ele.status === "Cancelled" && <p style={{ color: 'yellow', backgroundColor: 'navy', padding: '1px 7px'}}>&nbsp;{ele.status}</p>}</p>
+                      {(ele.status === "Cancelled") ? <p className="text-white" style={{border: '1px solid blue', width: '26rem'}}> Appointment ID: {ele._id} || {ele.status}</p> : null}
                     </div>
                   </>
                 })
@@ -114,14 +114,14 @@ useEffect(()=>{
               send.map((ele)=>{
                 return <>
                 <div>
-                  <option key={ele._id}>{ele._id}</option>
+                  {(ele.status === "Cancelled" ? <option>{ele._id}</option> : null)}
                 </div>
                 </>
               })
             }
           </select>
           <br /><br /><br /><br /><br/>
-          <button type="submit" style={{color: 'white', padding: '5px 10px', border: '2px solid yellow', background: 'transparent', marginLeft: '90px',}}>SCHEDULE NOW</button>
+          <button type="submit" style={{color: 'white', padding: '5px 10px', border: '2px solid yellow', background: 'transparent', marginLeft: '90px'}}>SCHEDULE NOW</button>
        </form>
       </div>
       {/* <div className="card" style={{ width: '35rem', padding: '5px', marginLeft: '35rem', borderRadius: '0px', marginTop: '-20px', position: 'absolute', boxShadow: '-2px 2px 6px 3px white' }}>

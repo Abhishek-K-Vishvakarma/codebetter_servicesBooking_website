@@ -19,7 +19,7 @@ const Usersubcategory = () => {
   return (
     <div style={{ backgroundImage: "url(https://booking.bijanbarihomestays.com/assets/images/index.jpg)", height: "1000px", backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover', width: '100%'}}>
       <Navbar style={{backgroundColor: 'navy'}} >
-        &nbsp;&nbsp;&nbsp;<Link to="/" style={{ color: 'white', textDecoration: 'none', fontSize: '20px', fontWeight: 'bold' }}><SiUnity style={{ fontSize: '70px'}}/> Home</Link>
+        &nbsp;&nbsp;&nbsp;<Link to="/" style={{ color: 'white', textDecoration: 'none', fontSize: '20px', fontWeight: 'bold', boxShadow: '0px 0px 5px 2px #999', padding: '5px 30px'}}><SiUnity style={{ fontSize: '70px'}}/> Home</Link>
         <h3 style={{color: 'white', marginLeft: '150px'}}>Search your subcategory to services</h3><input type="text" placeholder="Search..." value={search} onChange={(e) => setSearch(e.target.value)} style={{ width: '25rem', margin: 'auto', boxShadow: '0px 0px 8px 2px #666' }} className="form-control" />
       </Navbar>
       <br />

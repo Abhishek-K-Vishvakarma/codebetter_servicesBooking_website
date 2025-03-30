@@ -3,7 +3,6 @@ import { Container, Navbar } from "react-bootstrap";
 import { FaEdit } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { SiUnity } from "react-icons/si";
-
 const Reviewupdate = () => {
   const [rev, setRev] = useState([]);
   const [msg, setMsg] = useState("");
@@ -66,7 +65,7 @@ const Reviewupdate = () => {
     };
 
     try {
-      const response = await fetch(`http://localhost:7207/api/reviewput/${ ids }`, {
+      const response = await fetch(`http://localhost:7207/api/reviewput/${ids}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"

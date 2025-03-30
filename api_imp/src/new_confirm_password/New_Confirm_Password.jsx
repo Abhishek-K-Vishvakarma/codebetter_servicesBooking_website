@@ -1,7 +1,10 @@
 import { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {ToastContainer ,toast } from "react-toastify";
 import { useAuth } from "../Authentication";
+import { SiUnity } from "react-icons/si";
+import { Container, Navbar } from "react-bootstrap";
+
 const New_Confirm_Password = () => {
   const [msg, setMsg] = useState();
   const [msg1, setMsg1] = useState();
@@ -52,8 +55,14 @@ const New_Confirm_Password = () => {
   }
 
   return (
-    <div style={{ backgroundColor: 'navy', height: '911px', position: 'relative', alignItems: 'center', justifyContent: 'center', display: 'flex' }}>
-      <form className="card" onSubmit={ConfirmPassword} style={{width: '30rem', height: '40rem',margin: 'auto', padding: '50px', marginTop: '9rem', borderRadius: '0px'}}>
+    <div style={{ backgroundColor: '#5672', height: '911px'}}>
+      <Navbar style={{ background: 'navy' }}>
+        <Container>
+          <Link style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold', marginLeft: '-16rem', boxShadow: '0px 0px 5px 2px #999', padding: '6px 10px' }} to="/" ><SiUnity style={{ fontSize: '80px' }} /> Home Dashboard</Link>
+          <h3 className="text-white">Forgot? your password according you</h3>
+        </Container>
+      </Navbar>
+      <form className="card" onSubmit={ConfirmPassword} style={{width: '30rem', height: '40rem',margin: 'auto', padding: '50px', marginTop: '4rem', borderRadius: '0px'}}>
         <p style={{ color: "white", backgroundColor: '#cc0c39', textAlign: 'center', fontWeight: 'bold', padding: '15px', borderRadius: '0px', boxShadow: '0px 0px 5px 2px #999' }}>CHANGE PASSWORD</p>
         <p style={{textAlign: 'center', color: 'red'}}>{msg}</p>
         <p style={{ textAlign: 'center', color: 'green' }}>{msg1}</p>

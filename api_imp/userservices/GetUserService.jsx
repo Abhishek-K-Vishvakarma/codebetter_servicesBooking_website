@@ -2,12 +2,13 @@ import { useEffect, useState } from "react"
 import { useAuth } from "../src/Authentication";
 import { Link, useNavigate } from "react-router-dom";
 import {Navbar, Container, Carousel} from 'react-bootstrap';
-import { HiHome } from "react-icons/hi2";
+// import { HiHome } from "react-icons/hi2";
 import { GoStar } from "react-icons/go";
 // import { FaFaceGrinStars } from "react-icons/fa6";
 import { RiEdit2Fill } from "react-icons/ri";
 import { MdDeleteForever } from "react-icons/md";
 import { FaRegSmile } from "react-icons/fa";
+import { SiUnity } from "react-icons/si";
 
 const GetUserService = () =>{
   const [data, sepata] = useState([]);
@@ -80,7 +81,7 @@ const GetUserService = () =>{
   useEffect(()=>{
    let timer = setTimeout(()=>{
      setSend(false);
-   }, 3000);
+   }, 1000);
    return ()=> clearTimeout(timer);
   }, []);
 
@@ -104,14 +105,14 @@ const GetUserService = () =>{
         </div>
         :
           <div>
-            <Navbar style={{ background: 'url(https://www.shutterstock.com/image-vector/technological-background-flat-icons-symbols-600nw-1722511141.jpg)', boxShadow: '-4px 4px 5px 5px #999' }}>
+            <Navbar style={{ background: 'navy', position: 'fixed', zIndex: '1', width: '100%'}}>
               <Container>
-                <Link to="/" style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold', fontSize: '18px'}}>Home <HiHome /></Link>
+                <Link style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold', marginLeft: '-16rem', boxShadow: '0px 0px 5px 2px #999', padding: '6px 10px', fontSize: '20px'}} to="/" ><SiUnity style={{ fontSize: '80px' }} /> Home Dashboard</Link>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <h4 style={{display: 'flex', color: 'white'}}>Search services name &nbsp;<input type="text" placeholder="Search..." className="form-control" style={{ width: '25rem' }} onChange={(e) => setSearch(e.target.value)} /></h4>
               </Container>
             </Navbar>
-            <br /><br />
+            <br /><br /><br /><br /><br /><br />
             <Carousel className="container">
               <Carousel.Item interval={2000}>
                 <img style={{ width: '100%', height: '20rem' }} src="https://appleplumbing.com/wp-content/uploads/2013/10/Well-Tanks-101-What-Is-a-Well-Tank-How-Does-a-Well-Pressure-Tank-Work-797x300.jpeg" />

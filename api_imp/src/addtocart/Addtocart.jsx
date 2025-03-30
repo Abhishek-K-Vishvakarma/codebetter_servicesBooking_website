@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../Authentication";
 import { Link } from "react-router-dom";
 import { Navbar } from "react-bootstrap";
-import { FaHome } from "react-icons/fa";
+// import { FaHome } from "react-icons/fa";
 import Alert from 'react-bootstrap/Alert';
+import { SiUnity } from "react-icons/si";
+
 const Addtocart = () => {
   const { addsend } = useAuth();
   const [get, setGet] = useState([]);
@@ -65,10 +67,10 @@ const Addtocart = () => {
           <h2 style={{color: 'white',  marginTop: '25rem', position: 'absolute', marginLeft: '35rem'}}>Welcome to Cart Page, View your one more services!</h2>
         </div>
         :
-          <div style={{ backgroundColor: '#0d3b66', height: '911px'}}>
-            <Navbar className="bg-info">
-              <Link to="/" style={{ color: 'black', textDecoration: 'none', fontWeight: 'bold', marginLeft: '50px', fontSize: '20px' }}>Home <FaHome /></Link>
-              <h4 style={{ marginLeft: '45rem' }}>Check out</h4>
+          <div style={{ backgroundColor: '#0d89', height: '911px'}}>
+            <Navbar style={{background: 'navy',  color: 'white'}}>
+              <Link style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold', boxShadow: '0px 0px 5px 2px #999', padding: '6px 10px', marginLeft: '2rem'}} to="/" ><SiUnity style={{ fontSize: '80px' }} /> Home Dashboard</Link>
+              <h4 style={{ marginLeft: '4rem' }}>Check out your added services</h4>
             </Navbar>
            {
               show ? 

@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Authentication";
 import { Container, Navbar } from "react-bootstrap";
+import { SiUnity } from "react-icons/si";
+
 const Cancel = () => {
 const [send, setSend] = useState([]);
 const [get, setGet] = useState("");
@@ -43,9 +45,10 @@ const navigate = useNavigate();
   console.log("Can ID :", canid)
   // localStorage.removeItem('cencel')
   return (
-    <div style={{ background: 'url(https://img.freepik.com/premium-photo/high-angle-view-laptop-table_1048944-250121.jpg?semt=ais_hybrid)', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover', height: '911px'}}>
-      <Navbar style={{backdropFilter: 'blur(20px)', color: 'chocolate', boxShadow: '0px 0px 5px 3px #fff'}}>
+    <div>
+      <Navbar style={{background: 'navy', color: 'white'}}>
         <Container>
+          <Link style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold', marginLeft: '-16rem', boxShadow: '0px 0px 5px 2px #999', padding: '6px 10px' }} to="/" ><SiUnity style={{ fontSize: '80px' }} /> Home Dashboard</Link>
           <h2>Appointment Cancellation Page</h2>
         </Container>
       </Navbar>
